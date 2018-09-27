@@ -1,0 +1,104 @@
+<div style="text-align:center">
+    <h3>Employee Form</h3>
+</div>
+
+<form name="form" #f="ngForm" novalidate>
+
+  <div class="form-group">
+    <label for="title">Title</label>
+    <select name="title" id="title" size="1" [(ngModel)]="emp.title" required >
+      <option value="Mr">Mr</option>
+      <option value="Mrs">Mrs</option>
+      <option value="Miss">Miss</option>
+      <option value="Dr">Dr</option>
+      <option value="Prof">Prof</option>
+    </select> 
+  </div>
+
+  <div class="form-group"
+  [ngClass]="{'has-error': (fnameVar.touched || fnameVar.dirty) && !fnameVar.valid }">
+    <label for="fname">First Name:</label>
+    <input type="text" class="form-control" id="fname" name="fname" [(ngModel)]="emp.fname"  pattern="[A-Z][A-Za-z]+"
+    #fnameVar="ngModel" required/>
+    <span class="help-block" *ngIf="(fnameVar.touched || fnameVar.dirty) && fnameVar.errors">
+        <span *ngIf="fnameVar.errors.required">
+            Please enter your first name.
+        </span>
+        <span *ngIf="fnameVar.errors.pattern">
+            Please enter a valid first name.
+        </span>
+    </span>
+  </div>
+
+  <div class="form-group"
+  [ngClass]="{'has-error': (lnameVar.touched || lnameVar.dirty) && !lnameVar.valid }">
+      <label for="lname">Last Name:</label>
+      <input type="text" class="form-control" id="lname" name="lname" [(ngModel)]="emp.lname" pattern="[A-Z][A-Za-z]+"
+      #lnameVar="ngModel" required/>
+      <span class="help-block" *ngIf="(lnameVar.touched || lnameVar.dirty) && lnameVar.errors">
+          <span *ngIf="lnameVar.errors.required">
+              Please enter your last name.
+          </span>
+          <span *ngIf="lnameVar.errors.pattern">
+              Please enter a valid last name.
+          </span>
+      </span>
+  </div>
+
+  <div class="form-group"
+  [ngClass]="{'has-error': (mobileVar.touched || mobileVar.dirty) && !mobileVar.valid }">
+    <label for="mobile">Mobile</label>
+    <input type="number" class="form-control" id="mobile" name="mobile" [(ngModel)]="emp.mobile" pattern="[0-9]{10}"
+    #mobileVar="ngModel" required/>
+    <span class="help-block" *ngIf="(mobileVar.touched || mobileVar.dirty) && mobileVar.errors">
+        <span *ngIf="mobileVar.errors.required">
+            Please enter your mobile number.
+        </span>
+        <span *ngIf="mobileVar.errors.pattern">
+            Please enter a valid mobile number.
+        </span>
+    </span>
+  </div>
+
+  <div class="form-group"
+  [ngClass]="{'has-error': (a_mobileVar.touched || a_mobileVar.dirty) && !a_mobileVar.valid }">
+      <label for="mobile">Alternate Mobile</label>
+      <input type="number" class="form-control" id="a_mobile" name="mobile" [(ngModel)]="emp.a_mobile" pattern="[0-9]{10}"
+      #a_mobileVar="ngModel" required/>
+      <span class="help-block" *ngIf="(a_mobileVar.touched || a_mobileVar.dirty) && a_mobileVar.errors">
+          <span *ngIf="a_mobileVar.errors.required">
+              Please enter your mobile number.
+          </span>
+          <span *ngIf="a_mobileVar.errors.pattern">
+              Please enter a valid mobile number.
+          </span>
+      </span>
+  </div>
+
+  <div class="form-group"
+  [ngClass]="{'has-error': (emailVar.touched || emailVar.dirty) && !emailVar.valid }">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+"
+    [(ngModel)]="emp.email"
+    #emailVar="ngModel" required/>
+    <span class="help-block" *ngIf="(emailVar.touched || emailVar.dirty) && emailVar.errors">
+        <span *ngIf="emailVar.errors.required">
+            Please enter your email address.
+        </span>
+        <span *ngIf="emailVar.errors.pattern">
+            Please enter a valid email address.
+        </span>
+    </span>
+  </div>
+
+  <div class="form-group">
+      <label for="gender">Gender</label>
+      <select name="gender" id="gender" size="1" [(ngModel)]="emp.gender" required>
+        <option value="Lady">Lady</option>
+        <option value="Gent">Gent</option>
+      </select> 
+    </div>
+
+  <button type="submit" class="btn btn-success" (click)="addEmployee()">Submit</button>
+
+</form>

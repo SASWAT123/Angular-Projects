@@ -1,0 +1,12 @@
+
+h1{
+    color: blue;
+    text-decoration: underline;
+    background-color: aquamarine;
+}
+
+.nav{
+    padding: 20px;
+    background-color: aquamarine;
+    color: blue;
+}
