@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
 
+Use npm install to download all the dependencies used in this application.
+Form validation is also included in this project for various types of inputs.
+I am using local storage for persisting data and fetchng the data to display it on the home page.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
